@@ -2,15 +2,24 @@
 
 {% block content %}	
 	{% for post in posts %}
-	    <div class="post">
-	        <div class="date">
+	    <div class="post form-row list-item" style="margin: 5px 0px">
+	        <div class="item-date">
 	            {{ post.published_date }}
 	        </div>
 	        <!-- % : Django template tags -->
 	        <!-- post_detail : Django will be expecting a URL in blog/urls.py with name=post_detail -->
 	        <!-- pk=post.pk : short for primary key (unique name for each record in a database) -->
-	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-	        <p>{{ post.text|linebreaksbr }}</p>
+
+	        <div>
+	        	<a href="{% url 'post_detail' pk=post.pk %}"><div class="item-title">{{ post.title }}</div></a>
+	        	<div class="action-box"> 
+					<a href="{% url 'post_edit' pk=post.pk %}"> <i class="fa fa-pencil icon-action" aria-hidden="true"></i></a>
+					<span class="pipe-icon">    |    </span>
+					<a href="{% url 'post_delete' pk=post.pk %}"> <i class="fa fa-trash icon-action"aria-hidden="true"></i></a>
+				</div>
+	        </div>
+
+	        <p class="item-text">{{ post.text|linebreaksbr }}</p>
 	    </div>
 	{% endfor %}
 {% endblock %}

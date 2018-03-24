@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+	<div class="form-row list-item">
+	    <form method="POST">{% csrf_token %}
+			<!-- {{ form.as_table }} will render them as table cells wrapped in <tr> tags -->
+			<!-- {{ form.as_p }} will render them wrapped in <p> tags -->
+			<!-- {{ form.as_ul }} will render them wrapped in <li> tags -->
+
+			<div class="form-row">
+				<div class="label _txt-bold">TITLE :</div>
+				<input type="text" class="forminput" placeholder="title" name="title" value="{{ form.initial.title }}" />
+			</div>
+			<div class="form-row">
+				<div class="label _txt-bold">TEXT :</div>
+				<textarea style="min-height: 200px;" type="text" class="forminput" placeholder="text" name="text">{{ form.initial.text }}</textarea>
+			</div>
+
+	        <div style="text-align: center;">
+	        	<button type="submit" style="color: white; min-width: 150px;" class="save dekdbutton _margin-top-sm">Save</button>
+	        </div>
+	    </form>
+	</div>
+		
+{% endblock %}

@@ -1,13 +1,22 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  <div class="post">
+  <div class="form-row list-item">
       {% if post.published_date %}
-          <div class="date">
+          <div class="item-date">
               {{ post.published_date }}
           </div>
       {% endif %}
-      <h1>{{ post.title }}</h1>
-      <p>{{ post.text|linebreaksbr }}</p>
+
+      <div>
+            <a href="{% url 'post_detail' pk=post.pk %}"><div class="item-title">{{ post.title }}</div></a>
+            <div class="action-box"> 
+          <a href="{% url 'post_edit' pk=post.pk %}"> <i class="fa fa-pencil icon-action" aria-hidden="true"></i></a>
+          <span class="pipe-icon">    |    </span>
+          <a href="{% url 'post_delete' pk=post.pk %}"> <i class="fa fa-trash icon-action"aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <p class="item-text">{{ post.text|linebreaksbr }}</p>
   </div>
 {% endblock %}

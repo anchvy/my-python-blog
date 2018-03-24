@@ -1,22 +1,45 @@
 {% load staticfiles %}
 <html>
-    <head>
-        <title>Django Girls blog</title>
-        <link rel="stylesheet" href="https://www0.dek-d.com/assets/vendor/dekd-foundation-2.2/css/dekd-foundation.min.css">
-        <script src="https://www0.dek-d.com/assets/vendor/jquery/jquery-latest.min.js"></script>
-    </head>
-    <body>
-        <div class="page-header">
-            <h1><a href="/">Django Girls Blog</a></h1>
+  <head>
+      <title>Django Girls blog</title>
+      <link rel="stylesheet" href="https://www0.dek-d.com/assets/vendor/dekd-foundation-2.2/css/dekd-foundation.min.css">
+      <link rel="stylesheet" href="https://www0.dek-d.com/assets/css/font-awesome.min.css">
+      <script src="https://www0.dek-d.com/assets/vendor/jquery/jquery-latest.min.js"></script>
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="main-container">
+        <div class="content" style="margin:30px;">
+          <div class="form-row section-header" style="background: #FE9A2E;">
+              <h1><a style="color:white; font-family:'Lobster'; font-size: 60px;" href="/">Django Girls Blog</a></h1>
+          </div>
+          <div class="sub-header">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}"><span style="color: white;"><i class="fa fa-plus" aria-hidden="true"></i> New </span></a>
+            {% endif %}
+          </div>
+
+          <div>
+              <div>
+                  <div>
+                    {% block content %}
+                    {% endblock %}
+                  </div>
+              </div>
+          </div>
         </div>
-        <div class="content container">
-          <hr>
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
-                </div>
-            </div>
-        </div>
-    </body>
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    
+    $(document).ready( () => {
+      console.log('123')
+    })
+
+  </script>
+
 </html>

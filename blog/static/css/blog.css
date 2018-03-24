@@ -1,0 +1,54 @@
+.section-header {
+	text-align: center;
+	padding: 40px 0px;
+	margin-bottom: 0px;
+}
+
+.action-box {
+	display: inline-block; float: right;
+}
+
+a:link, a:visited, a:hover, a:active {
+	color: #424242;
+}
+
+.pipe-icon {
+	font-size: 1.5em; color: #D8D8D8;
+}
+
+.icon-action {
+	color:orange; font-size: 1.5em;
+}
+
+.sub-header {
+	text-align: right;
+	padding: 5px;
+	background: #FAAC58;
+}
+
+.list-item {
+	padding: 20px;
+	border-bottom: 3px solid #FF8000;
+}
+
+.item-text {
+	padding: 30px 10px; 
+	border: 1px solid #E6E6E6; 
+	border-radius: 5px;
+}
+
+.item-title {
+	margin: 10px 0px;
+	display: inline-block; 
+	font-size: 24px; 
+	font-weight: bold;
+}
+
+.item-date {
+	font-size: 10px; 
+	color: #A4A4A4;
+}
+
+.form-row {
+	background: white;
+}
