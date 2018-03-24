@@ -1,5 +1,16 @@
-<html>
+{% extends 'blog/base.html' %}
+
+{% block content %}	
 	{% for post in posts %}
-    	{{ post }}
+	    <div class="post">
+	        <div class="date">
+	            {{ post.published_date }}
+	        </div>
+	        <!-- % : Django template tags -->
+	        <!-- post_detail : Django will be expecting a URL in blog/urls.py with name=post_detail -->
+	        <!-- pk=post.pk : short for primary key (unique name for each record in a database) -->
+	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+	        <p>{{ post.text|linebreaksbr }}</p>
+	    </div>
 	{% endfor %}
-</html>
+{% endblock %}

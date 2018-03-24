@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="https://www0.dek-d.com/assets/vendor/dekd-foundation-2.2/css/dekd-foundation.min.css">
+        <script src="https://www0.dek-d.com/assets/vendor/jquery/jquery-latest.min.js"></script>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>
+        <div class="content container">
+          <hr>
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

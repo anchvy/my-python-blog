@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 # means current directory or current application ( can relative path with ../..)
 from .models import Post
@@ -11,3 +11,8 @@ def post_list(request):
   # filter time < NOW() and ordered by  'published_date'
   posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
   return render(request, 'blog/post_list.html', { 'posts': posts })
+
+def post_detail(request, pk):
+  # get_object_or_404(klass, *args, **kwargs)
+  post = get_object_or_404(Post, pk=pk)
+  return render(request, 'blog/post_detail.html', { 'post': post })
